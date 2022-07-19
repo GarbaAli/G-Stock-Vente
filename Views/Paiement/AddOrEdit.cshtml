@@ -1,0 +1,52 @@
+﻿@model G_Stock_Vente.Models.Paiement
+
+@{
+    ViewData["Title"] = "Nouveau Paiement";
+    Layout = null;
+}
+
+
+<!-- Form Element area Start-->
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs">
+        <div class="form-element-list">
+            <form asp-action="AddOrEdit" asp-route-id="@Model.paiementId" onsubmit="return AddPaiement(this);">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="paiementId" />
+                <input type="hidden" asp-for="created_at" />
+                <input type="hidden" asp-for="updated_at" />
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fa fa-tag"></i>
+                            </div>
+                            <div class="nk-int-st">
+                                <input asp-for="cdepaiement"  type="text" class="form-control" placeholder="Code du moyen de paiement">
+                            </div>
+                            <span asp-validation-for="cdepaiement" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fa fa-tags"></i>
+                            </div>
+                            <div class="nk-int-st">
+                                <input asp-for="libellePaiement" type="text" class="form-control" placeholder="Libelle de paiement">
+                            </div>
+                            <span asp-validation-for="libellePaiement" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <button type="submit" class="btn notika-btn-teal" style="color:#fff; padding-left:50px; padding-right:50px">Valider</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

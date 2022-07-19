@@ -1,0 +1,110 @@
+﻿@model G_Stock_Vente.Models.Fournisseur
+
+@{
+    ViewData["Title"] = "Nouveau Fournisseur";
+    Layout = null;
+}
+
+
+<!-- Form Element area Start-->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs">
+                <div class="form-element-list">
+                    <form asp-action="AddOrEdit" asp-route-id="@Model.FsseurId" onsubmit="return AddFsseur(this);">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="FsseurId" />
+                        <input type="hidden" asp-for="createdFsseur" />
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-tag"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="codeFsseur" type="text" class="form-control" placeholder="Code du Fournisseur">
+                                    </div>
+                                    <span asp-validation-for="codeFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="nomFsseur" type="text" class="form-control" placeholder="Nom et prenom Fournisseur">
+                                    </div>
+                                    <span asp-validation-for="nomFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-mail"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="emailFsseur" type="text" class="form-control" placeholder="Email Address">
+                                    </div>
+                                    <span asp-validation-for="emailFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="phoneFsseur" type="text" data-mask="(999) 999-9999" class="form-control" placeholder="Contact Number">
+                                    </div>
+                                    <span asp-validation-for="phoneFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-map"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="paysFsseur" type="text" class="form-control" placeholder="Pays">
+                                    </div>
+                                    <span asp-validation-for="paysFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-map"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="villeFsseur" type="text" class="form-control" placeholder="Ville">
+                                    </div>
+                                    <span asp-validation-for="villeFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-next"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="postalFsseur" type="text" class="form-control" data-mask="9999" placeholder="Postal Code">
+                                    </div>
+                                    <span asp-validation-for="postalFsseur" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                                <button type="submit" class="btn notika-btn-teal" style="color:#fff; padding-left:50px; padding-right:50px">Valider</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+

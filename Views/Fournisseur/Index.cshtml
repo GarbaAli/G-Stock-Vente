@@ -1,0 +1,13 @@
+﻿@model IEnumerable<G_Stock_Vente.Models.Fournisseur>
+@{
+    ViewData["Title"] = "G-Stock|Liste des Fournisseurs";
+}
+
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewFsseur", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,117 @@
+﻿@model G_Stock_Vente.Models.Client
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<!-- Form Element area Start-->
+<div class="form-element-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="basic-tb-hd">
+                    </div>
+                    <div class="cmp-tb-hd bcs-hd">
+                        <h2> Nouveau client </h2>
+                    </div>
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-tag"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="codeClt" type="text" class="form-control" placeholder="Code du client">
+                                    </div>
+                                    <span asp-validation-for="codeClt" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="nomClt" type="text" class="form-control" placeholder="Nom et prenom client">
+                                    </div>
+                                    <span asp-validation-for="nomClt" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-mail"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="emailClt" type="text" class="form-control" placeholder="Email Address">
+                                    </div>
+                                    <span asp-validation-for="emailClt" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="phoneClt" type="text" data-mask="(999) 999-9999" class="form-control" placeholder="Contact Number">
+                                    </div>
+                                    <span asp-validation-for="phoneClt" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-map"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="paysClt" type="text" class="form-control" placeholder="Pays">
+                                    </div>
+                                    <span asp-validation-for="paysClt" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-map"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="villeClt" type="text" class="form-control" placeholder="Ville">
+                                    </div>
+                                    <span asp-validation-for="villeClt" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fa fa-next"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input asp-for="postalClt" type="text" class="form-control" data-mask="9999" placeholder="Postal Code">
+                                    </div>
+                                    <span asp-validation-for="postalClt" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <button type="submit" class="btn notika-btn-teal" style="color:#fff; padding-left:20px; padding-right:20px">Valider</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a asp-action="Index" class="btn notika-btn-black btn-reco-mg btn-button-mg" style="color:#fff; padding-left:20px; padding-right:20px">Retour</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

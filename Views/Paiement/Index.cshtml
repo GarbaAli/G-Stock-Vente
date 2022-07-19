@@ -1,0 +1,13 @@
+﻿@model IEnumerable<G_Stock_Vente.Models.Paiement>
+@{
+    ViewData["Title"] = "G-Stock|Paiements";
+}
+
+
+<div id="view-all-paiement">
+    @await Html.PartialAsync("_ViewPaiement", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

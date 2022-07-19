@@ -1,0 +1,125 @@
+﻿@model IEnumerable<G_Stock_Vente.Models.Fournisseur>
+
+<!-- Breadcomb area Start-->
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="fa fa-table-list"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Tous mes Fournisseurs</h2>
+                                    <p>Bienvenue <span class="bread-ntd">Gestion de stock et de Vente</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                            <div class="breadcomb-report">
+                                <a onclick="showpopup('@Url.Action("AddOrEdit","Fournisseur",null,Context.Request.Scheme)','Nouveau Fournisseur')" class="btn">
+                                    <i class="fa fa-user"> Nouveau Fournisseur</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcomb area End-->
+<!-- Data Table area Start-->
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="data-table-list">
+                    <div class="table-responsive">
+                        <table id="data-table-basic" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Code </th>
+                                    <th>Nom & Prenom</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Pays</th>
+                                    <th>Ville</th>
+                                    <th>Statut</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td> @item.codeFsseur </td>
+                                    <td>@item.nomFsseur</td>
+                                    <td>@item.emailFsseur</td>
+                                    <td>@item.phoneFsseur</td>
+                                    <td>@item.paysFsseur</td>
+                                    <td>@item.villeFsseur</td>
+                                    <td>
+                                        @if (item.statutFsseur)
+                                        {
+                                            <button class="btn btn-primary notika-btn-green btn-xs">Actif</button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-primary notika-btn-red btn-xs">Inactif</button>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a onclick="showpopup('@Url.Action("AddOrEdit","Fournisseur",new {id=item.FsseurId},Context.Request.Scheme)','Modifier Fournisseur')" style="margin-left:10px" class="btn btn-success notika-btn-success btn-xs">
+                                            <i class="fa fa-pencil"> Modifier Fournisseur</i>
+                                        </a>
+
+                                        @if (item.statutFsseur)
+                                        {
+                                            <form style="display:inline" asp-action="Desactivate" asp-route-id="@item.FsseurId" class="d-inline">
+                                                <button type="submit" class="btn btn-default notika-btn-default btn-xs">
+                                                    <i class="fa fa-close"></i>Desactivate
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form style="display:inline" asp-action="Desactivate" asp-route-id="@item.FsseurId" class="d-inline">
+                                                <button type="submit" class="btn btn-default notika-btn-green btn-xs">
+                                                    <i class="fa fa-check"></i>Activer
+                                                </button>
+                                            </form>
+                                        }
+
+                                        <form style="display:inline" asp-action="Delete" asp-route-id="@item.FsseurId" onsubmit="return DeleteFsseur(this);" class="d-inline">
+                                            <button type="submit" class="btn btn-danger notika-btn-danger btn-xs"><i class="fa fa-trash"></i>Supprimer</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Code </th>
+                                    <th>Nom & Prenom</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Pays</th>
+                                    <th>Ville</th>
+                                    <th>Statut</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Data Table area End-->
