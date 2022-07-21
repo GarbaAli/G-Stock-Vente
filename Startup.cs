@@ -38,6 +38,7 @@ namespace G_Stock_Vente
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IFournisseurRepository, FournisseurRepository>();
             services.AddScoped<IPaiementRepository, PaiementRepository>();
+            services.AddScoped<IFamilleRepository, FamilleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

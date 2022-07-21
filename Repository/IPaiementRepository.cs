@@ -19,5 +19,6 @@ namespace G_Stock_Vente.Repository
         Task UpdatePaiement(Paiement paiement);
 
         Task DeletePaiement(int id);
+        int nbrePaiement();
     }
 }

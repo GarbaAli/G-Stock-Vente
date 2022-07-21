@@ -1,0 +1,13 @@
+﻿@model IEnumerable<G_Stock_Vente.Models.Famille>
+
+@{
+    ViewData["title"] = "Familles | G-Stock-Vente";
+}
+
+<div id="view-all-famille">
+    @await Html.PartialAsync("_ViewPartialFamilly", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

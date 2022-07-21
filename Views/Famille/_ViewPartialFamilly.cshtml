@@ -1,0 +1,110 @@
+﻿@model IEnumerable<G_Stock_Vente.Models.Famille>
+<!-- Breadcomb area Start-->
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="fa fa-table-list"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Gestion des Familles d'article</h2>
+                                    <p>Votre <span class="bread-ntd">Gestion de stock et de Vente</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                            <div class="breadcomb-report">
+                                <a onclick="showpopup('@Url.Action("AddOrEdit","Famille",null,Context.Request.Scheme)','Nouelle Famille')" class="btn">
+                                    <i class="fa fa-plus"> Nouelle Famille</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcomb area End-->
+<!-- Data Table area Start-->
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="data-table-list">
+                    <div class="table-responsive">
+                        <table id="data-table-basic" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Code </th>
+                                    <th>Libelle</th>
+                                    <th>Date de creation</th>
+                                    <th>Derniere modification</th>
+                                    <th>Statut</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td> @item.codeFamille </td>
+                                        <td>@item.libelleFamille</td>
+                                        <td>@item.created_at</td>
+                                        <td>@item.updated_at</td>
+                                        <td>
+                                            @if (item.statusFamille)
+                                            {
+                                                <form style="display:inline" asp-action="Desactivate" asp-route-id="@item.familleId" class="d-inline">
+                                                    <button type="submit" class="btn btn-default notika-btn-green btn-xs">
+                                                        <i class="fa fa-close"></i>Desactiver
+                                                    </button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                        <form style="display:inline" asp-action="Desactivate" asp-route-id="@item.familleId" class="d-inline">
+                                            <button type="submit" class="btn btn-default notika-btn-default btn-xs">
+                                                <i class="fa fa-check"></i>Activer
+                                            </button>
+                                        </form>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a onclick="showpopup('@Url.Action("AddOrEdit","Famille",new {id=item.familleId},Context.Request.Scheme)','Modifier Famille')" style="margin-left:10px" class="btn btn-success notika-btn-success btn-xs">
+                                                <i class="fa fa-pencil"> Modifier Famille <strong>@item.codeFamille</strong></i>
+                                            </a>
+
+
+                                            <form style="display:inline" asp-action="Delete" asp-route-id="@item.familleId" onsubmit="return DeleteFamilly(this);" class="d-inline">
+                                                <button type="submit" class="btn btn-danger notika-btn-danger btn-xs"><i class="fa fa-trash"></i>Supprimer</button>
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Code </th>
+                                    <th>Libelle</th>
+                                    <th>Date de creation</th>
+                                    <th>Derniere modification</th>
+                                    <th>Statut</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Data Table area End-->

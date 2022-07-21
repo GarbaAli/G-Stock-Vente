@@ -33,19 +33,22 @@ namespace G_Stock_Vente.Repository
             await _bd.SaveChangesAsync(); 
         }
 
-        public Task DeleteFamille(int id)
+        public async Task DeleteFamille(int id)
         {
-            throw new NotImplementedException();
+            var f = _bd.familles.Find(id);
+            _bd.familles.Remove(f);
+            await _bd.SaveChangesAsync();
         }
 
-        public Task<Famille> GetFamille(int id)
+        public async Task<Famille> GetFamille(int id)
         {
-            throw new NotImplementedException();
+            return await _bd.familles.FirstOrDefaultAsync(f => f.familleId == id);
         }
 
-        public Task UpdateFamille(Famille famille)
+        public async Task UpdateFamille(Famille famille)
         {
-            throw new NotImplementedException();
+            _bd.familles.Update(famille);
+            await _bd.SaveChangesAsync();
         }
     }
 }

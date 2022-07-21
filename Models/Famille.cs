@@ -12,7 +12,7 @@ namespace G_Stock_Vente.Models
         public int familleId { get; set; }
 
         [Required(ErrorMessage ="Le code la famille requise")]
-        [MaxLength(ErrorMessage ="Le code ne dois pas depasser 8 caracteres")]
+        [MaxLength(8 , ErrorMessage ="Le code ne dois pas depasser 8 caracteres")]
         public string codeFamille { get; set; }
         [Required(ErrorMessage ="Le libelle est requis")]
         public string libelleFamille { get; set; }

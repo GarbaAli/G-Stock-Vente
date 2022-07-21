@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G_Stock_Vente.Repository
 {
-    interface IFamilleRepository
+    public interface IFamilleRepository
     {
         Task<IEnumerable<Famille>> AllFamile();
         Task<IEnumerable<Famille>> AllFamilleStatus();

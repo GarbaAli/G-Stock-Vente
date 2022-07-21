@@ -1,4 +1,5 @@
 ﻿using G_Stock_Vente.Models;
+using G_Stock_Vente.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +13,10 @@ namespace G_Stock_Vente.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IFournisseurRepository _fournisseur;
+        private readonly IClientRepository _client;
+        private readonly IFamilleRepository _famille;
+        private readonly IPaiementRepository _paiement;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,7 +25,8 @@ namespace G_Stock_Vente.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var p = _paiement.nbrePaiement();
+            return View(p);
         }
 
         public IActionResult Privacy()

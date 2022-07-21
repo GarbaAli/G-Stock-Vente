@@ -42,6 +42,11 @@ namespace G_Stock_Vente.Repository
             return await _bd.paiements.FirstOrDefaultAsync(p => p.paiementId == id);
         }
 
+        public int nbrePaiement()
+        {
+            return _bd.paiements.ToList().Count;
+        }
+
         public async Task UpdatePaiement(Paiement paiement)
         {
             _bd.paiements.Update(paiement);
